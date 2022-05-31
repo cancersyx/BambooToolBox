@@ -22,6 +22,8 @@ public class Preview extends SurfaceView implements SurfaceHolder.Callback {
     private SurfaceView surfaceView;
     private SurfaceHolder holder;
     private Camera mCamera;
+    private List<Camera.Size> supportedPreviewSizes;
+
 
     public Preview(Context context) {
         this(context, null);
@@ -35,7 +37,6 @@ public class Preview extends SurfaceView implements SurfaceHolder.Callback {
         super(context, attrs, defStyleAttr);
 
         surfaceView = new SurfaceView(context);
-
 
         holder = surfaceView.getHolder();
         holder.addCallback(this);
@@ -56,11 +57,12 @@ public class Preview extends SurfaceView implements SurfaceHolder.Callback {
 
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
-
+        Log.d(TAG,">>>>>> surfaceCreated()");
     }
 
     @Override
     public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
+        Log.d(TAG,">>>>>> surfaceChange()");
         Camera.Parameters parameters = mCamera.getParameters();
         //parameters.setPreviewSize(previewSize.width, previewSize.height);
         parameters.setPreviewSize(300, 500);
@@ -83,10 +85,10 @@ public class Preview extends SurfaceView implements SurfaceHolder.Callback {
         stopPreviewAndFreeCamera();
         mCamera = camera;
         if (mCamera != null) {
+            //获取相机支持的像素
             List<Camera.Size> localSizes = mCamera.getParameters().getSupportedPreviewSizes();
-            //supportedPreviewSizes = localSizes; todo
+            supportedPreviewSizes = localSizes;
             requestLayout();
-
             try {
                 Log.d(TAG, ">>>>>>789");
                 mCamera.setPreviewDisplay(holder);

@@ -21,6 +21,7 @@ import com.zsf.toolbox.exchange.ExchangeRateActivity;
 import com.zsf.toolbox.gradienter.GradienterActivity;
 import com.zsf.toolbox.mirror.MirrorActivity;
 import com.zsf.toolbox.netspeed.NetSpeedActivity;
+import com.zsf.toolbox.protractor.ProtractorActivity;
 import com.zsf.toolbox.ruler.RulerActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -160,6 +161,13 @@ public class MainActivity extends AppCompatActivity {
                     MirrorActivity.startActivity(MainActivity.this);
                 }
 
+            }
+        });
+
+        mProtractorTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ProtractorActivity.startActivity(MainActivity.this);
             }
         });
 
