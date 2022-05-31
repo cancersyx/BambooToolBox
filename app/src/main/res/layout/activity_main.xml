@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_bg_color"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <include layout="@layout/layout_title" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="15dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <TextView
+            android:id="@+id/tv_flashlight"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/bg_btn"
+            android:drawableTop="@drawable/icon_flashlight"
+            android:elevation="5dp"
+            android:gravity="center"
+            android:paddingTop="5dp"
+            android:text="手电筒"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_magnifier"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_btn"
+            android:drawableTop="@drawable/icon_magnifier"
+            android:elevation="5dp"
+            android:gravity="center"
+            android:paddingTop="5dp"
+            android:text="放大镜"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_decibel"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_btn"
+            android:drawableTop="@drawable/icon_decibel"
+            android:elevation="5dp"
+            android:gravity="center"
+            android:paddingTop="5dp"
+            android:text="分贝仪"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <TextView
+            android:id="@+id/tv_compass"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/bg_btn"
+            android:drawableTop="@drawable/icon_compass"
+            android:elevation="5dp"
+            android:gravity="center"
+            android:paddingTop="5dp"
+            android:text="指南针"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_gradienter"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_btn"
+            android:drawableTop="@drawable/iocn_gradienter"
+            android:elevation="5dp"
+            android:gravity="center"
+            android:paddingTop="5dp"
+            android:text="水平仪"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_calculate"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_btn"
+            android:drawableTop="@drawable/icon_calculate"
+            android:elevation="5dp"
+            android:gravity="center"
+            android:paddingTop="5dp"
+            android:text="计算器"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <TextView
+            android:id="@+id/tv_ruler"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/bg_btn"
+            android:drawableTop="@drawable/icon_ruler"
+            android:elevation="5dp"
+            android:gravity="center"
+            android:paddingTop="5dp"
+            android:text="尺子"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_sos"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_btn"
+            android:drawableTop="@drawable/icon_sos"
+            android:elevation="5dp"
+            android:gravity="center"
+            android:paddingTop="5dp"
+            android:text="SOS"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_mirror"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_btn"
+            android:drawableTop="@drawable/icon_mirror"
+            android:elevation="5dp"
+            android:gravity="center"
+            android:paddingTop="5dp"
+            android:text="镜子"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <TextView
+            android:id="@+id/tv_protractor"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/bg_btn"
+            android:drawableTop="@drawable/icon_protractor"
+            android:elevation="5dp"
+            android:gravity="center"
+            android:paddingTop="5dp"
+            android:text="量角器"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_change_rate"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_btn"
+            android:drawableTop="@drawable/icon_change_rate"
+            android:elevation="5dp"
+            android:gravity="center"
+            android:paddingTop="5dp"
+            android:text="汇率换算"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_barrage"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_btn"
+            android:drawableTop="@drawable/icon_barrage"
+            android:elevation="5dp"
+            android:gravity="center"
+            android:paddingTop="5dp"
+            android:text="滚动字幕"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <TextView
+            android:id="@+id/tv_network_speed"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/bg_btn"
+            android:drawableTop="@drawable/icon_network_speed"
+            android:elevation="5dp"
+            android:gravity="center"
+            android:paddingTop="5dp"
+            android:text="网络测速"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+
+        <TextView
+            android:id="@+id/tv_machine_info"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_btn"
+            android:drawableTop="@drawable/icon_machine_info"
+            android:elevation="5dp"
+            android:gravity="center"
+            android:paddingTop="5dp"
+            android:text="设备信息"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_about"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_btn"
+            android:drawableTop="@drawable/icon_about"
+            android:elevation="5dp"
+            android:gravity="center"
+            android:paddingTop="5dp"
+            android:text="关于"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+
+    </LinearLayout>
+</LinearLayout>
