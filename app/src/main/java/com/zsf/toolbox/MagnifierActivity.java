@@ -166,6 +166,15 @@ public class MagnifierActivity extends AppCompatActivity implements SurfaceHolde
 
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (mCamera != null) {
+            mCamera.release();
+            mCamera = null;
+            mCameraIsOpenFlag = false;
+        }
+    }
 
     public static void startActivity(Context context) {
         Intent intent = new Intent(context, MagnifierActivity.class);

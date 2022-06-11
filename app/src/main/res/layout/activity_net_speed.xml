@@ -34,7 +34,7 @@
             android:layout_marginTop="10dp"
             android:gravity="center"
             android:maxLines="1"
-            android:text="当前网速：1KB/S"
+            android:text="当前网速：0KB/S"
             android:textSize="22sp" />
 
         <TextView
@@ -44,7 +44,7 @@
             android:layout_marginTop="10dp"
             android:gravity="center"
             android:maxLines="1"
-            android:text="平均速度：1KB/S"
+            android:text="平均速度：0KB/S"
             android:textSize="22sp" />
     </LinearLayout>
 

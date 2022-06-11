@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/layout_title" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ListView
+            android:id="@+id/app_list_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@drawable/img_divider"
+            android:dividerHeight="1dp"
+            android:scrollbars="none" />
+
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:indeterminate="true"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center" />
+    </FrameLayout>
+
+
+</LinearLayout>

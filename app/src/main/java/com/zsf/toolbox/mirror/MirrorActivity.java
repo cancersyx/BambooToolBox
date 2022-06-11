@@ -20,6 +20,7 @@ import android.widget.ImageView;
 import com.zsf.toolbox.R;
 
 import java.io.IOException;
+import java.util.List;
 
 /**
  * Created by EWorld
@@ -74,7 +75,8 @@ public class MirrorActivity extends AppCompatActivity {
         try {
             mCamera = Camera.open(1);
             Camera.Parameters parameters = mCamera.getParameters();
-            parameters.setFocusMode(Camera.Parameters.FOCUS_MODE_AUTO);
+            List<Camera.Size> pictureSizes = parameters.getSupportedPictureSizes();
+            //parameters.setFocusMode(Camera.Parameters.FOCUS_MODE_AUTO);
             mCamera.setParameters(parameters);
             mCamera.setPreviewDisplay(mSurfaceView.getHolder());
             mCamera.setDisplayOrientation(90);

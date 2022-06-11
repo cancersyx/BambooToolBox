@@ -1,26 +1,29 @@
 package com.zsf.toolbox;
 
 import android.Manifest;
+import android.content.pm.ActivityInfo;
 import android.content.pm.FeatureInfo;
 import android.content.pm.PackageManager;
 import android.hardware.Camera;
 import android.hardware.camera2.CameraManager;
 import android.os.Build;
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.zsf.toolbox.appmanage.AppManageActivity;
 import com.zsf.toolbox.decibel.DecibelActivity;
 import com.zsf.toolbox.exchange.ExchangeRateActivity;
 import com.zsf.toolbox.gradienter.GradienterActivity;
 import com.zsf.toolbox.mirror.MirrorActivity;
 import com.zsf.toolbox.netspeed.NetSpeedActivity;
+import com.zsf.toolbox.oneword.OneWordActivity;
 import com.zsf.toolbox.protractor.ProtractorActivity;
 import com.zsf.toolbox.ruler.RulerActivity;
 
@@ -34,6 +37,9 @@ public class MainActivity extends AppCompatActivity {
     private TextView mRulerTv, mSOSTv, mMirrorTv;
     private TextView mProtractorTv, mChangeRateTv, mBarrageTv;
     private TextView mNetworkSpeedTv, mMachineInfoTv, mAboutTv;
+    private TextView mOneWordTv, mSimpTv, mAntiMotivationalQuotesTv;
+    private TextView mAppManageTv, mDogTv, mIpTv;
+    private TextView mTaoBaoTv, mCatTv, mComicTv;
 
     private boolean isOpen = false;
     private CameraManager mCameraManager;
@@ -56,6 +62,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+    }
 
     private void initView() {
         mBackIv = findViewById(R.id.iv_back);
@@ -77,6 +88,15 @@ public class MainActivity extends AppCompatActivity {
         mNetworkSpeedTv = findViewById(R.id.tv_network_speed);
         mMachineInfoTv = findViewById(R.id.tv_machine_info);
         mAboutTv = findViewById(R.id.tv_about);
+        mOneWordTv = findViewById(R.id.tv_one_word);
+        mSimpTv = findViewById(R.id.tv_simp);
+        mAntiMotivationalQuotesTv = findViewById(R.id.tv_anti_motivational_quotes);
+        mAppManageTv = findViewById(R.id.tv_app_manage);
+        mDogTv = findViewById(R.id.tv_dog_img);
+        mIpTv = findViewById(R.id.tv_ip);
+        mTaoBaoTv = findViewById(R.id.tv_tao);
+        mCatTv = findViewById(R.id.tv_cat);
+        mComicTv = findViewById(R.id.tv_comic);
     }
 
     private void initEvent() {
@@ -203,6 +223,62 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 AboutActivity.startActivity(MainActivity.this);
+            }
+        });
+
+        mOneWordTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                OneWordActivity.startActivity(MainActivity.this);
+            }
+        });
+
+        mSimpTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SimpActivity.startActivity(MainActivity.this);
+            }
+        });
+        mAntiMotivationalQuotesTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AntiMotivationalQuotesActivity.startActivity(MainActivity.this);
+            }
+        });
+        mAppManageTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AppManageActivity.startActivity(MainActivity.this);
+            }
+        });
+        mDogTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DogImgActivity.startActivity(MainActivity.this);
+            }
+        });
+        mIpTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                IpAddressActivity.startActivity(MainActivity.this);
+            }
+        });
+        mTaoBaoTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                TaoBaoActivity.startActivity(MainActivity.this);
+            }
+        });
+        mCatTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CatImgActivity.startActivity(MainActivity.this);
+            }
+        });
+        mComicTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ComicImgActivity.startActivity(MainActivity.this);
             }
         });
 
