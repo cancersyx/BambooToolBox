@@ -1,6 +1,8 @@
 package com.zsf.toolbox;
 
 import android.Manifest;
+import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.pm.FeatureInfo;
 import android.content.pm.PackageManager;
@@ -11,7 +13,10 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.text.method.LinkMovementMethod;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -56,6 +61,12 @@ public class MainActivity extends AppCompatActivity {
 
         initView();
         initEvent();
+
+        SharedPreferences sharedPreferences = getSharedPreferences("privacy_bamboo_tool", MODE_PRIVATE);
+        boolean isAgree = sharedPreferences.getBoolean("is_agree_privacy", false);
+        if (!isAgree) {
+            showPrivacyDialog();
+        }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             mCameraManager = (CameraManager) getSystemService(CAMERA_SERVICE);
@@ -282,6 +293,31 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void showPrivacyDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View view = LayoutInflater.from(this).inflate(R.layout.dialog_privacy,null);
+        TextView textView = view.findViewById(R.id.tv_privacy_info);
+        builder.setView(view);
+        builder.setTitle("欢迎使用竹子工具箱");
+        textView.setMovementMethod(LinkMovementMethod.getInstance());
+        builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                SharedPreferences.Editor editor = getSharedPreferences("privacy_bamboo_tool", MODE_PRIVATE).edit();
+                editor.putBoolean("is_agree_privacy", true);
+                editor.commit();
+            }
+        });
+        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                finish();
+            }
+        });
+        AlertDialog dialog = builder.create();
+        dialog.show();
     }
 
 

@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">竹子工具箱</string>
+    <string name="prompt_msg">在您使用 竹子工具箱 前，请详细阅读本应用的<a href="http://www.sfwind.xyz/AppPrivacy/app_privacy_bamboo_tool.html" onclick="click_privacy()">隐私政策</a>
+        和<a href="http://www.sfwind.xyz/AppPrivacy/user_agreement_bamboo_tool.html">用户协议</a> ,
+        在此特别说明下面几点：\n
+        1.本应用保证未经您同意，不会向任何第三方透露您的隐私信息；\n
+        2.本应用需要的一些权限仅会在您使用相关功能时候申请；\n
+        3.如果您同意请点击下面“同意”按钮以正常使用本应用提供的服务；\n
+
+    </string>
 </resources>

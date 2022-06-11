@@ -1,12 +1,16 @@
 package com.zsf.toolbox;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -44,20 +48,31 @@ public class TaoBaoActivity extends AppCompatActivity {
     private ImageView mTaoBaoPic;
     private ProgressBar mProgressBar;
     private Bitmap mBitmap;
+    private ImageView mTitleRightIv;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_taobao);
+        initView();
+        initEvent();
+        initData();
+    }
 
+    private void initView() {
         mBackIv = findViewById(R.id.iv_back);
         mTitleTv = findViewById(R.id.tv_title);
         mTaoBaoPic = findViewById(R.id.iv_pic);
         mProgressBar = findViewById(R.id.progress_bar);
         mProgressBar.setVisibility(View.VISIBLE);
+        mTitleRightIv = findViewById(R.id.iv_title_ok);
+        mTitleRightIv.setImageResource(R.drawable.icon_title_refresh_36);
+        mTitleRightIv.setVisibility(View.VISIBLE);
 
         mTitleTv.setText("淘宝买家秀");
+    }
 
+    private void initEvent() {
         mBackIv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,6 +83,10 @@ public class TaoBaoActivity extends AppCompatActivity {
         mTaoBaoPic.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
+                if (!hasPermission()) {
+                    requestPermission();
+                    return true;
+                }
                 if (mBitmap != null) {
                     String path = Environment.getExternalStoragePublicDirectory(DIRECTORY_DCIM).getPath();
                     saveImage(mBitmap, path);
@@ -75,7 +94,13 @@ public class TaoBaoActivity extends AppCompatActivity {
                 return true;
             }
         });
-        initData();
+        mTitleRightIv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mProgressBar.setVisibility(View.VISIBLE);
+                initData();
+            }
+        });
     }
 
     private void initData() {
@@ -130,6 +155,33 @@ public class TaoBaoActivity extends AppCompatActivity {
             Toast.makeText(this, "图片保存到" + path, Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    private boolean hasPermission() {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
+            return false;
+        }
+        return true;
+    }
+
+    private void requestPermission() {
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 100);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == 100) {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                if (mBitmap != null) {
+                    String path = Environment.getExternalStoragePublicDirectory(DIRECTORY_DCIM).getPath();
+                    saveImage(mBitmap, path);
+                }
+            } else {
+                Toast.makeText(this, "禁止权限会影响存储功能！", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 
