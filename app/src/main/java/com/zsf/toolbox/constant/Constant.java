@@ -30,4 +30,7 @@ public class Constant {
     public static final String API_TAO_BAO_IMG = "https://api.ghser.com";
     //随机二次元图
     public static final String API_COMIC_IMG = "https://api.ghser.com";
+
+    //https://learnku.com/articles/30329 持续更新免费的 API，做一个 API 的搬运工——终身维护
+
 }

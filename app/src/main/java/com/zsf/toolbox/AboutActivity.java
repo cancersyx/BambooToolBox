@@ -9,6 +9,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.zsf.toolbox.utils.AppUtil;
+
 /**
  * Created by EWorld
  * 2022/5/26
@@ -17,6 +19,7 @@ import android.widget.TextView;
 public class AboutActivity extends AppCompatActivity {
     private ImageView mBackIv;
     private TextView mTitleTv;
+    private TextView mVersionTv;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -26,6 +29,8 @@ public class AboutActivity extends AppCompatActivity {
         mBackIv = findViewById(R.id.iv_back);
         mTitleTv = findViewById(R.id.tv_title);
         mTitleTv.setText("关于");
+        mVersionTv = findViewById(R.id.tv_version);
+        mVersionTv.setText("V_"+AppUtil.getPackageVersionName(this));
 
         mBackIv.setOnClickListener(new View.OnClickListener() {
             @Override
