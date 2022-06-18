@@ -28,9 +28,9 @@ public class AboutActivity extends AppCompatActivity {
 
         mBackIv = findViewById(R.id.iv_back);
         mTitleTv = findViewById(R.id.tv_title);
-        mTitleTv.setText("关于");
+        mTitleTv.setText(R.string.str_about);
         mVersionTv = findViewById(R.id.tv_version);
-        mVersionTv.setText("V_"+AppUtil.getPackageVersionName(this));
+        mVersionTv.setText("V_" + AppUtil.getPackageVersionName(this));
 
         mBackIv.setOnClickListener(new View.OnClickListener() {
             @Override

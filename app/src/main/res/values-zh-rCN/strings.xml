@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BambooToolBox</string>
+    <string name="app_name">竹子工具箱</string>
     <string name="prompt_msg">在您使用 竹子工具箱 前，请详细阅读本应用的<a href="http://www.sfwind.xyz/AppPrivacy/app_privacy_bamboo_tool.html" onclick="click_privacy()">隐私政策</a>
         和<a href="http://www.sfwind.xyz/AppPrivacy/user_agreement_bamboo_tool.html">用户协议</a> ,
         在此特别说明下面几点：\n
@@ -8,5 +8,5 @@
         3.如果您同意请点击下面“同意”按钮以正常使用本应用提供的服务；\n
 
     </string>
-    <string name="str_about">About</string>
+    <string name="str_about">关于</string>
 </resources>

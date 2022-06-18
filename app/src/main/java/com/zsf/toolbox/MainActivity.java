@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView mFlashLightTv, mMagnifierTv, mDecibel;
     private TextView mCompass, mGradienter, mCalculate;
     private TextView mRulerTv, mSOSTv, mMirrorTv;
-    private TextView mProtractorTv, mChangeRateTv, mBarrageTv;
+    private TextView mProtractorTv, mExchangeRateTv, mBarrageTv;
     private TextView mNetworkSpeedTv, mMachineInfoTv, mAboutTv;
     private TextView mOneWordTv, mSimpTv, mAntiMotivationalQuotesTv;
     private TextView mAppManageTv, mDogTv, mIpTv;
@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity {
         mSOSTv = findViewById(R.id.tv_sos);
         mMirrorTv = findViewById(R.id.tv_mirror);
         mProtractorTv = findViewById(R.id.tv_protractor);
-        mChangeRateTv = findViewById(R.id.tv_change_rate);
+        mExchangeRateTv = findViewById(R.id.tv_exchange_rate);
         mBarrageTv = findViewById(R.id.tv_barrage);
         mNetworkSpeedTv = findViewById(R.id.tv_network_speed);
         mMachineInfoTv = findViewById(R.id.tv_machine_info);
@@ -202,7 +202,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        mChangeRateTv.setOnClickListener(new View.OnClickListener() {
+        mExchangeRateTv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ExchangeRateActivity.startActivity(MainActivity.this);

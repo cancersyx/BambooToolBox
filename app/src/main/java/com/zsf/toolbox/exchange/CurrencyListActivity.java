@@ -16,6 +16,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.zsf.toolbox.R;
 import com.zsf.toolbox.api.CurrencyAPI;
@@ -46,19 +47,11 @@ public class CurrencyListActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_currency_list);
-        mBack = findViewById(R.id.iv_back);
-        mTitle = findViewById(R.id.tv_title);
-        mTitle.setText("选择货币");
-        mListView = findViewById(R.id.list_view);
+        initView();
 
         mFlag = getIntent().getIntExtra("flag_is_which_btn", 0);
 
-        mBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        initEvent();
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Constant.API_BASE_JVHE_URL)
@@ -73,6 +66,7 @@ public class CurrencyListActivity extends AppCompatActivity {
                 Currency currency = response.body();
                 if (currency.getError_code() == 10012) {
                     Log.d(TAG, ">>>>>> 超过每日可允许请求次数");
+                    Toast.makeText(CurrencyListActivity.this, "超过每日可请求次数", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if (currency.getResult() == null) return;
@@ -114,6 +108,22 @@ public class CurrencyListActivity extends AppCompatActivity {
             @Override
             public void onFailure(Call<Currency> call, Throwable t) {
 
+            }
+        });
+    }
+
+    private void initView() {
+        mBack = findViewById(R.id.iv_back);
+        mTitle = findViewById(R.id.tv_title);
+        mTitle.setText("选择货币");
+        mListView = findViewById(R.id.list_view);
+    }
+
+    private void initEvent() {
+        mBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }

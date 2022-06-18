@@ -6,12 +6,13 @@ package com.zsf.toolbox.constant;
  */
 public class Constant {
     public static final String KEY = "cff6a8928d2c5adcf376556105031396";
+
     public static final String API_BASE_JVHE_URL = "http://op.juhe.cn/onebox/";
     //常用汇率查询
-    public static final String API_COMMON_USE_EXCHANGE = "http://op.juhe.cn/onebox/exchange/query?key=" + KEY;
+    public static final String API_COMMON_EXCHANGE_RATE = "http://op.juhe.cn/onebox/exchange/query?key=" + KEY;
     //货币列表
     public static final String API_CURRENCY = "http://op.juhe.cn/onebox/exchange/list?key=" + KEY;
-    //实时货币汇率查询换算
+    //实时货币汇率查询换算 http://op.juhe.cn/onebox/exchange/currency?key=cff6a8928d2c5adcf376556105031396&from=JPY&to=BHD
     public static final String API_CURRENCY_EXCHANGE_ = "http://op.juhe.cn/onebox/exchange/currency?key=" + KEY;
 
     //一语言录
@@ -32,5 +33,10 @@ public class Constant {
     public static final String API_COMIC_IMG = "https://api.ghser.com";
 
     //https://learnku.com/articles/30329 持续更新免费的 API，做一个 API 的搬运工——终身维护
+
+    //随机美女
+    //http://img.btu.pp.ua/random/api.php?type=img
+    //#参数mode={1,2}，默认1，2是IG图包 1是图包1
+    //http://img.btu.pp.ua/random/api.php?mode=2
 
 }
