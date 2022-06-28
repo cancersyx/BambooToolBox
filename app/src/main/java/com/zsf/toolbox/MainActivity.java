@@ -45,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView mOneWordTv, mSimpTv, mAntiMotivationalQuotesTv;
     private TextView mAppManageTv, mDogTv, mIpTv;
     private TextView mTaoBaoTv, mCatTv, mComicTv;
+    private TextView mBingTv, mInternetCelebrityTv, mBeautyGirlTv;
+    private TextView mSplicePicTv;
 
     private boolean isOpen = false;
     private CameraManager mCameraManager;
@@ -108,6 +110,10 @@ public class MainActivity extends AppCompatActivity {
         mTaoBaoTv = findViewById(R.id.tv_tao);
         mCatTv = findViewById(R.id.tv_cat);
         mComicTv = findViewById(R.id.tv_comic);
+        mBingTv = findViewById(R.id.tv_bing_pic);
+        mInternetCelebrityTv = findViewById(R.id.tv_internet_celebrity);
+        mBeautyGirlTv = findViewById(R.id.tv_beauty_girl);
+        mSplicePicTv = findViewById(R.id.tv_splice_pic);
     }
 
     private void initEvent() {
@@ -292,12 +298,37 @@ public class MainActivity extends AppCompatActivity {
                 ComicImgActivity.startActivity(MainActivity.this);
             }
         });
+        mBingTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                BingPicActivity.startActivity(MainActivity.this);
+            }
+        });
+        mInternetCelebrityTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                InternetCelebrityPicActivity.startActivity(MainActivity.this);
+            }
+        });
+        mBeautyGirlTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                BeautyGirlPicActivity.startActivity(MainActivity.this);
+            }
+        });
+
+        mSplicePicTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "开发中。。。", Toast.LENGTH_SHORT).show();
+            }
+        });
 
     }
 
     private void showPrivacyDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        View view = LayoutInflater.from(this).inflate(R.layout.dialog_privacy,null);
+        View view = LayoutInflater.from(this).inflate(R.layout.dialog_privacy, null);
         TextView textView = view.findViewById(R.id.tv_privacy_info);
         builder.setView(view);
         builder.setTitle("欢迎使用竹子工具箱");

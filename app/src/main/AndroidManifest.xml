@@ -63,6 +63,9 @@
         <activity android:name=".ComicImgActivity" />
         <activity android:name=".ConstellationActivity" />
         <activity android:name=".exchange.CommonExchangeRateActivity" />
+        <activity android:name=".BingPicActivity" />
+        <activity android:name=".InternetCelebrityPicActivity" />
+        <activity android:name=".BeautyGirlPicActivity" />
     </application>
 
 </manifest>

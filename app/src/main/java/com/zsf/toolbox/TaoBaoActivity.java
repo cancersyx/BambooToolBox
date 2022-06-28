@@ -1,6 +1,7 @@
 package com.zsf.toolbox;
 
 import android.Manifest;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -8,18 +9,17 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Environment;
+import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.zsf.toolbox.api.TaoBaoApi;
 import com.zsf.toolbox.constant.Constant;
 
@@ -35,7 +35,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import static android.os.Environment.DIRECTORY_DCIM;
+import static android.os.Environment.DIRECTORY_PICTURES;
 
 /**
  * Created by EWorld
@@ -88,7 +88,7 @@ public class TaoBaoActivity extends AppCompatActivity {
                     return true;
                 }
                 if (mBitmap != null) {
-                    String path = Environment.getExternalStoragePublicDirectory(DIRECTORY_DCIM).getPath();
+                    String path = Environment.getExternalStoragePublicDirectory(DIRECTORY_PICTURES).getPath();
                     saveImage(mBitmap, path);
                 }
                 return true;
@@ -153,9 +153,17 @@ public class TaoBaoActivity extends AppCompatActivity {
             bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream);
             fileOutputStream.close();
             Toast.makeText(this, "图片保存到" + path, Toast.LENGTH_SHORT).show();
+
+            File picFile = new File(path + "/" + imageFileName + ".png");
+            ContentValues values = new ContentValues();
+            values.put(MediaStore.Images.Media.DATA, picFile.getAbsolutePath());
+            values.put(MediaStore.Images.Media.MIME_TYPE, "image/png");
+            getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+
     }
 
     private boolean hasPermission() {
@@ -176,7 +184,7 @@ public class TaoBaoActivity extends AppCompatActivity {
         if (requestCode == 100) {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 if (mBitmap != null) {
-                    String path = Environment.getExternalStoragePublicDirectory(DIRECTORY_DCIM).getPath();
+                    String path = Environment.getExternalStoragePublicDirectory(DIRECTORY_PICTURES).getPath();
                     saveImage(mBitmap, path);
                 }
             } else {

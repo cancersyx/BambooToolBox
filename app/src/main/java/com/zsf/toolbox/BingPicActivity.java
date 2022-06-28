@@ -20,7 +20,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.zsf.toolbox.api.ComicApi;
+import com.zsf.toolbox.api.BingPicApi;
 import com.zsf.toolbox.constant.Constant;
 
 import java.io.File;
@@ -39,37 +39,37 @@ import static android.os.Environment.DIRECTORY_PICTURES;
 
 /**
  * Created by EWorld
- * 2022/6/10
+ * 2022/6/21
  */
-public class ComicImgActivity extends AppCompatActivity {
-    private static final String TAG = "TaoBaoActivity";
+public class BingPicActivity extends AppCompatActivity {
     private ImageView mBackIv;
     private TextView mTitleTv;
-    private ImageView mComicPic;
-    private ImageView mRefreshIv;
+    private ImageView mTitleRightIv;
+    private ImageView mImageView;
     private ProgressBar mProgressBar;
     private Bitmap mBitmap;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_comic_img);
-
+        setContentView(R.layout.activity_bing_pic);
         initView();
-        initEvent();
         initData();
+        initEvent();
     }
 
     private void initView() {
         mBackIv = findViewById(R.id.iv_back);
         mTitleTv = findViewById(R.id.tv_title);
-        mComicPic = findViewById(R.id.iv_pic);
-        mProgressBar = findViewById(R.id.progress_bar);
+        mTitleRightIv = findViewById(R.id.iv_title_ok);
+        mImageView = findViewById(R.id.iv_bing);
+        mProgressBar = findViewById(R.id.iv_progress_bar);
+
+        mTitleRightIv.setImageResource(R.drawable.icon_title_refresh_36);
+        mTitleRightIv.setVisibility(View.GONE);
         mProgressBar.setVisibility(View.VISIBLE);
-        mRefreshIv = findViewById(R.id.iv_title_ok);
-        mRefreshIv.setImageResource(R.drawable.icon_title_refresh_36);
-        mRefreshIv.setVisibility(View.VISIBLE);
-        mTitleTv.setText("二次元");
+
+        mTitleTv.setText("每日Bing");
     }
 
     private void initEvent() {
@@ -79,14 +79,15 @@ public class ComicImgActivity extends AppCompatActivity {
                 finish();
             }
         });
-        mRefreshIv.setOnClickListener(new View.OnClickListener() {
+        mTitleRightIv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mProgressBar.setVisibility(View.VISIBLE);
                 initData();
             }
         });
-        mComicPic.setOnLongClickListener(new View.OnLongClickListener() {
+
+        mImageView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
                 if (!hasPermission()) {
@@ -100,15 +101,16 @@ public class ComicImgActivity extends AppCompatActivity {
                 return true;
             }
         });
+
     }
 
     private void initData() {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(Constant.API_COMIC_IMG)
+                .baseUrl(Constant.API_BING_DAILY_2)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-        ComicApi comicApi = retrofit.create(ComicApi.class);
-        Call call = comicApi.getComicPic();
+        BingPicApi bingPicApi = retrofit.create(BingPicApi.class);
+        Call call = bingPicApi.getBingPic();
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
@@ -116,7 +118,7 @@ public class ComicImgActivity extends AppCompatActivity {
                     ResponseBody responseBody = (ResponseBody) response.body();
                     if (responseBody == null) return;
                     mBitmap = BitmapFactory.decodeStream(responseBody.byteStream());
-                    mComicPic.setImageBitmap(mBitmap);
+                    mImageView.setImageBitmap(mBitmap);
                     mProgressBar.setVisibility(View.GONE);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -129,7 +131,6 @@ public class ComicImgActivity extends AppCompatActivity {
             }
         });
     }
-
 
     /**
      * 保存位图到本地
@@ -191,8 +192,9 @@ public class ComicImgActivity extends AppCompatActivity {
         }
     }
 
+
     public static void startActivity(Context context) {
-        Intent intent = new Intent(context, ComicImgActivity.class);
+        Intent intent = new Intent(context, BingPicActivity.class);
         context.startActivity(intent);
     }
 }

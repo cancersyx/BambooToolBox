@@ -39,4 +39,23 @@ public class Constant {
     //#参数mode={1,2}，默认1，2是IG图包 1是图包1
     //http://img.btu.pp.ua/random/api.php?mode=2
 
+    //播放抖音搞笑短视频 https://v.api.aa1.cn/api/api-video-gaoxiao/index.php?aa1=rf7y8w5yf79u8hwf4
+
+    //******************************************************************************************START
+    //https://likepoems.com/articles/106 信息来自
+    //https://zhuanlan.zhihu.com/p/336053929 信息来自
+    //https://api.isoyu.com/bing_images.php
+    public static final String API_BING_DAILY = "https://api.isoyu.com";
+    public static final String API_BING_DAILY_2 = "https://api.dujin.org/bing/m.php";
+    //网红专栏壁纸 https://api.isoyu.com/beibei_images.php
+    public static final String API_INTERNET_CELEBRITY_PIC = "https://api.isoyu.com";
+    //美女图片  https://api.isoyu.com/mm_images.php
+    //public static final String API_BEAUTY_GIRL = "https://api.isoyu.com";
+    // https://cdn.seovx.com/?mom=302
+    //https://cdn.seovx.com/ha/?mom=302
+    public static final String API_BEAUTY_GIRL = "https://cdn.seovx.com/";
+
+    //******************************************************************************************END
+
+
 }
