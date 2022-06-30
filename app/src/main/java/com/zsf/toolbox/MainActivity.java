@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView mAppManageTv, mDogTv, mIpTv;
     private TextView mTaoBaoTv, mCatTv, mComicTv;
     private TextView mBingTv, mInternetCelebrityTv, mBeautyGirlTv;
-    private TextView mSplicePicTv;
+    private TextView mSplicePicTv,mSensorTv;
 
     private boolean isOpen = false;
     private CameraManager mCameraManager;
@@ -60,10 +60,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         initView();
         initEvent();
-
         SharedPreferences sharedPreferences = getSharedPreferences("privacy_bamboo_tool", MODE_PRIVATE);
         boolean isAgree = sharedPreferences.getBoolean("is_agree_privacy", false);
         if (!isAgree) {
@@ -114,6 +112,7 @@ public class MainActivity extends AppCompatActivity {
         mInternetCelebrityTv = findViewById(R.id.tv_internet_celebrity);
         mBeautyGirlTv = findViewById(R.id.tv_beauty_girl);
         mSplicePicTv = findViewById(R.id.tv_splice_pic);
+        mSensorTv = findViewById(R.id.tv_sensor);
     }
 
     private void initEvent() {
@@ -321,6 +320,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(MainActivity.this, "开发中。。。", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        mSensorTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SensorActivity.startActivity(MainActivity.this);
             }
         });
 

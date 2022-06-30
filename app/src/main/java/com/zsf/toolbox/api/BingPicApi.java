@@ -10,6 +10,7 @@ import retrofit2.http.GET;
  * 2022/6/10
  */
 public interface BingPicApi {
-    @GET("/bing_images.php")
+    /*@GET("/bing_images.php")*/
+    @GET("/bing/m.php")
     Call<ResponseBody> getBingPic();
 }

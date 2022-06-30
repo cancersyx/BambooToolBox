@@ -287,6 +287,20 @@
             android:paddingRight="10dp">
 
             <TextView
+                android:id="@+id/tv_sensor"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bg_btn"
+                android:drawableTop="@drawable/icon_sensor"
+                android:elevation="5dp"
+                android:gravity="center"
+                android:paddingTop="5dp"
+                android:text="传感器"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <TextView
                 android:id="@+id/tv_ip"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -294,6 +308,7 @@
                 android:background="@drawable/bg_btn"
                 android:drawableTop="@drawable/icon_ip_address"
                 android:elevation="5dp"
+                android:layout_marginLeft="10dp"
                 android:gravity="center"
                 android:paddingTop="5dp"
                 android:text="IP查询"
@@ -315,18 +330,7 @@
                 android:textColor="@color/white"
                 android:textSize="16sp" />
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
-                android:layout_weight="1"
-                android:background="@drawable/bg_btn"
-                android:drawableTop="@drawable/icon_ip_address"
-                android:elevation="5dp"
-                android:gravity="center"
-                android:paddingTop="5dp"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -522,7 +526,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/bg_btn"
-                android:drawableTop="@drawable/icon_about"
+                android:drawableTop="@drawable/icon_splice_pic"
                 android:elevation="5dp"
                 android:gravity="center"
                 android:paddingTop="5dp"

@@ -66,6 +66,7 @@
         <activity android:name=".BingPicActivity" />
         <activity android:name=".InternetCelebrityPicActivity" />
         <activity android:name=".BeautyGirlPicActivity" />
+        <activity android:name=".SensorActivity" />
     </application>
 
 </manifest>

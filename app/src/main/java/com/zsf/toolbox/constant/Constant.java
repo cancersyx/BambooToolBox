@@ -46,7 +46,8 @@ public class Constant {
     //https://zhuanlan.zhihu.com/p/336053929 信息来自
     //https://api.isoyu.com/bing_images.php
     public static final String API_BING_DAILY = "https://api.isoyu.com";
-    public static final String API_BING_DAILY_2 = "https://api.dujin.org/bing/m.php";
+    //https://api.dujin.org/bing/m.php
+    public static final String API_BING_DAILY_2 = "https://api.dujin.org";
     //网红专栏壁纸 https://api.isoyu.com/beibei_images.php
     public static final String API_INTERNET_CELEBRITY_PIC = "https://api.isoyu.com";
     //美女图片  https://api.isoyu.com/mm_images.php
