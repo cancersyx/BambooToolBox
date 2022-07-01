@@ -25,6 +25,7 @@ import android.widget.Toast;
 import com.zsf.toolbox.appmanage.AppManageActivity;
 import com.zsf.toolbox.decibel.DecibelActivity;
 import com.zsf.toolbox.exchange.ExchangeRateActivity;
+import com.zsf.toolbox.garbagesort.GarbageClassificationActivity;
 import com.zsf.toolbox.gradienter.GradienterActivity;
 import com.zsf.toolbox.mirror.MirrorActivity;
 import com.zsf.toolbox.netspeed.NetSpeedActivity;
@@ -46,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView mAppManageTv, mDogTv, mIpTv;
     private TextView mTaoBaoTv, mCatTv, mComicTv;
     private TextView mBingTv, mInternetCelebrityTv, mBeautyGirlTv;
-    private TextView mSplicePicTv,mSensorTv;
+    private TextView mSplicePicTv,mSensorTv,mGarbageClassificationTv;
 
     private boolean isOpen = false;
     private CameraManager mCameraManager;
@@ -113,6 +114,7 @@ public class MainActivity extends AppCompatActivity {
         mBeautyGirlTv = findViewById(R.id.tv_beauty_girl);
         mSplicePicTv = findViewById(R.id.tv_splice_pic);
         mSensorTv = findViewById(R.id.tv_sensor);
+        mGarbageClassificationTv = findViewById(R.id.tv_garbage_sorting);
     }
 
     private void initEvent() {
@@ -327,6 +329,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 SensorActivity.startActivity(MainActivity.this);
+            }
+        });
+
+        mGarbageClassificationTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                GarbageClassificationActivity.startActivity(MainActivity.this);
             }
         });
 

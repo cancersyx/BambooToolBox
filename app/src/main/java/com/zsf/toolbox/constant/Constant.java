@@ -58,5 +58,6 @@ public class Constant {
 
     //******************************************************************************************END
 
-
+    //垃圾分类 https://www.sfwind.xyz/AppPrivacy/GarbageClassification.json
+    public static final String API_GARBAGE_CLASSIFICATION = "https://www.sfwind.xyz/";
 }
