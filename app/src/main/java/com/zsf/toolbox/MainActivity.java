@@ -47,7 +47,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView mAppManageTv, mDogTv, mIpTv;
     private TextView mTaoBaoTv, mCatTv, mComicTv;
     private TextView mBingTv, mInternetCelebrityTv, mBeautyGirlTv;
-    private TextView mSplicePicTv,mSensorTv,mGarbageClassificationTv;
+    private TextView mSplicePicTv, mSensorTv, mGarbageClassificationTv;
+    private TextView mFeedTv;
 
     private boolean isOpen = false;
     private CameraManager mCameraManager;
@@ -115,6 +116,7 @@ public class MainActivity extends AppCompatActivity {
         mSplicePicTv = findViewById(R.id.tv_splice_pic);
         mSensorTv = findViewById(R.id.tv_sensor);
         mGarbageClassificationTv = findViewById(R.id.tv_garbage_sorting);
+        mFeedTv = findViewById(R.id.tv_feed);
     }
 
     private void initEvent() {
@@ -336,6 +338,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 GarbageClassificationActivity.startActivity(MainActivity.this);
+            }
+        });
+
+        mFeedTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FeedActivity.startActivity(MainActivity.this);
             }
         });
 

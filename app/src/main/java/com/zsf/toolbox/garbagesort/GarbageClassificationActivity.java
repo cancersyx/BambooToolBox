@@ -8,7 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -43,7 +45,7 @@ public class GarbageClassificationActivity extends AppCompatActivity {
     private EditText mEditText;
     private ImageView mDeleteIv;
     private String mKeywords;
-    private TextView mGarbageNameTv, mResultTv;
+    private TextView mGarbageNameTv, mGarbageTypeTv, mResultTv;
     private boolean hasResult;//有结果
 
     @Override
@@ -64,6 +66,7 @@ public class GarbageClassificationActivity extends AppCompatActivity {
         mDeleteIv = findViewById(R.id.iv_delete);
         mDeleteIv.setVisibility(View.INVISIBLE);
         mGarbageNameTv = findViewById(R.id.tv_garbage_name);
+        mGarbageTypeTv = findViewById(R.id.tv_garbage_type);
         mResultTv = findViewById(R.id.tv_result);
     }
 
@@ -104,15 +107,34 @@ public class GarbageClassificationActivity extends AppCompatActivity {
             }
         });
 
+        mEditText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                switch (actionId) {
+                    case EditorInfo.IME_ACTION_SEARCH:
+                        initData();
+                        return true;
+                }
+                return false;
+            }
+        });
+
         mDeleteIv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mEditText.setText("");
+                mGarbageNameTv.setText("");
+                mResultTv.setText("");
             }
         });
     }
 
     private void initData() {
+        String keyword = mEditText.getText().toString();
+        if (keyword.isEmpty()) {
+            Toast.makeText(GarbageClassificationActivity.this, "请输入关键字！", Toast.LENGTH_SHORT).show();
+            return;
+        }
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Constant.API_GARBAGE_CLASSIFICATION)
                 .addConverterFactory(GsonConverterFactory.create())
@@ -128,11 +150,11 @@ public class GarbageClassificationActivity extends AppCompatActivity {
                     Garbage.DataDTO dataDTO = garbageList.get(i);
                     String word = dataDTO.getName();
                     Log.d(TAG, ">>>>>> word = " + word);
-                    if (mKeywords.contains(word)) {
+                    if (word.contains(mKeywords)) {
                         hasResult = true;
-                        if (dataDTO.getType().equals("厨余垃圾")) {
+                        if (dataDTO.getType().equals("厨余垃圾") || dataDTO.getType().equals("湿垃圾") || dataDTO.getType().equals("厨余垃圾(湿垃圾)")) {
                             mGarbageNameTv.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_kitchen_waste, 0, 0, 0);
-                        } else if (dataDTO.getType().equals("其他垃圾")) {
+                        } else if (dataDTO.getType().equals("其他垃圾") || dataDTO.getType().equals("其他垃圾(干垃圾)")) {
                             mGarbageNameTv.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_other_garbage, 0, 0, 0);
                         } else if (dataDTO.getType().equals("可回收物") || dataDTO.getType().equals("可回收垃圾")) {
                             mGarbageNameTv.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_recyclable_waste, 0, 0, 0);
@@ -140,8 +162,8 @@ public class GarbageClassificationActivity extends AppCompatActivity {
                             mGarbageNameTv.setCompoundDrawablesWithIntrinsicBounds(R.drawable.icon_hazardous_waste, 0, 0, 0);
                         }
                         mGarbageNameTv.setText(dataDTO.getName());
-                        mResultTv.setText(garbageList.get(i).getType() + "\n"
-                                + garbageList.get(i).getContain() + "\n"
+                        mGarbageTypeTv.setText(dataDTO.getType());
+                        mResultTv.setText(garbageList.get(i).getContain() + "\n"
                                 + "\n"
                                 + garbageList.get(i).getExplain() + "\n"
                                 + "\n"
@@ -150,6 +172,7 @@ public class GarbageClassificationActivity extends AppCompatActivity {
                         break;
                     }
                 }
+
                 if (!hasResult) {
                     Toast.makeText(GarbageClassificationActivity.this, "抱歉，没有找到该类物品", Toast.LENGTH_SHORT).show();
                 }

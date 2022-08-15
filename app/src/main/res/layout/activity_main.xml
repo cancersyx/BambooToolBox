@@ -304,11 +304,11 @@
                 android:id="@+id/tv_ip"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/bg_btn"
                 android:drawableTop="@drawable/icon_ip_address"
                 android:elevation="5dp"
-                android:layout_marginLeft="10dp"
                 android:gravity="center"
                 android:paddingTop="5dp"
                 android:text="IP查询"
@@ -535,10 +535,34 @@
                 android:textSize="16sp" />
 
             <TextView
-                android:id="@+id/tv_about"
+                android:id="@+id/tv_feed"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_btn"
+                android:drawableTop="@drawable/icon_feed"
+                android:elevation="5dp"
+                android:gravity="center"
+                android:paddingTop="5dp"
+                android:text="今天吃什么"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
+
+            <TextView
+                android:id="@+id/tv_about"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/bg_btn"
                 android:drawableTop="@drawable/icon_about"
@@ -548,6 +572,19 @@
                 android:text="关于"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:elevation="5dp"
+                android:gravity="center"
+                android:paddingTop="5dp"
+                android:text=""
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+
 
 
         </LinearLayout>

@@ -68,6 +68,7 @@
         <activity android:name=".BeautyGirlPicActivity" />
         <activity android:name=".SensorActivity" />
         <activity android:name=".garbagesort.GarbageClassificationActivity" />
+        <activity android:name=".FeedActivity" />
     </application>
 
 </manifest>
