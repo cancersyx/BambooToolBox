@@ -1,4 +1,4 @@
-package com.zsf.toolbox;
+package com.zsf.toolbox.ui;
 
 import android.Manifest;
 import android.content.ContentValues;
@@ -20,7 +20,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.zsf.toolbox.api.TaoBaoApi;
+import com.zsf.toolbox.R;
+import com.zsf.toolbox.api.BeautyGirlPic2Api;
 import com.zsf.toolbox.constant.Constant;
 
 import java.io.File;
@@ -39,37 +40,37 @@ import static android.os.Environment.DIRECTORY_PICTURES;
 
 /**
  * Created by EWorld
- * 2022/6/10
+ * 2022/6/21
  */
-public class TaoBaoActivity extends AppCompatActivity {
-    private static final String TAG = "TaoBaoActivity";
+public class BeautyGirlPic2Activity extends AppCompatActivity {
     private ImageView mBackIv;
     private TextView mTitleTv;
-    private ImageView mTaoBaoPic;
+    private ImageView mTitleRightIv;
+    private ImageView mImageView;
     private ProgressBar mProgressBar;
     private Bitmap mBitmap;
-    private ImageView mTitleRightIv;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_taobao);
+        setContentView(R.layout.activity_beauty_girl_pic_2);
         initView();
-        initEvent();
         initData();
+        initEvent();
     }
 
     private void initView() {
         mBackIv = findViewById(R.id.iv_back);
         mTitleTv = findViewById(R.id.tv_title);
-        mTaoBaoPic = findViewById(R.id.iv_pic);
-        mProgressBar = findViewById(R.id.progress_bar);
-        mProgressBar.setVisibility(View.VISIBLE);
         mTitleRightIv = findViewById(R.id.iv_title_ok);
+        mImageView = findViewById(R.id.iv_beauty_girl);
+        mProgressBar = findViewById(R.id.iv_progress_bar);
+
         mTitleRightIv.setImageResource(R.drawable.icon_title_refresh_36);
         mTitleRightIv.setVisibility(View.VISIBLE);
+        mProgressBar.setVisibility(View.VISIBLE);
 
-        mTitleTv.setText("淘宝买家秀");
+        mTitleTv.setText("看美女2");
     }
 
     private void initEvent() {
@@ -79,8 +80,15 @@ public class TaoBaoActivity extends AppCompatActivity {
                 finish();
             }
         });
+        mTitleRightIv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mProgressBar.setVisibility(View.VISIBLE);
+                initData();
+            }
+        });
 
-        mTaoBaoPic.setOnLongClickListener(new View.OnLongClickListener() {
+        mImageView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
                 if (!hasPermission()) {
@@ -94,22 +102,16 @@ public class TaoBaoActivity extends AppCompatActivity {
                 return true;
             }
         });
-        mTitleRightIv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mProgressBar.setVisibility(View.VISIBLE);
-                initData();
-            }
-        });
+
     }
 
     private void initData() {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(Constant.API_TAO_BAO_IMG_2)
+                .baseUrl(Constant.API_BEAUTY_GIRL_2)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-        TaoBaoApi taoBaoApi = retrofit.create(TaoBaoApi.class);
-        Call call = taoBaoApi.getTaoBaoPic();
+        BeautyGirlPic2Api beautyGirlPicApi = retrofit.create(BeautyGirlPic2Api.class);
+        Call call = beautyGirlPicApi.getBeautyGirlPic2();
         call.enqueue(new Callback() {
             @Override
             public void onResponse(Call call, Response response) {
@@ -117,7 +119,7 @@ public class TaoBaoActivity extends AppCompatActivity {
                     ResponseBody responseBody = (ResponseBody) response.body();
                     if (responseBody == null) return;
                     mBitmap = BitmapFactory.decodeStream(responseBody.byteStream());
-                    mTaoBaoPic.setImageBitmap(mBitmap);
+                    mImageView.setImageBitmap(mBitmap);
                     mProgressBar.setVisibility(View.GONE);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -162,8 +164,6 @@ public class TaoBaoActivity extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
     }
 
     private boolean hasPermission() {
@@ -193,8 +193,9 @@ public class TaoBaoActivity extends AppCompatActivity {
         }
     }
 
+
     public static void startActivity(Context context) {
-        Intent intent = new Intent(context, TaoBaoActivity.class);
+        Intent intent = new Intent(context, BeautyGirlPic2Activity.class);
         context.startActivity(intent);
     }
 }

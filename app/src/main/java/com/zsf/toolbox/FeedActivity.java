@@ -11,8 +11,6 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
-import com.zsf.toolbox.garbagesort.GarbageClassificationActivity;
-
 import java.util.Random;
 
 /**
@@ -33,7 +31,7 @@ public class FeedActivity extends AppCompatActivity {
             "螺蛳粉", "重庆小面", "减肥！不吃"
     };
     private String[] mDineTogetherArray = new String[]{
-            "火锅", "烧烤自助", "酸菜鱼", "日料", "东北菜", "江浙菜", "川菜"
+            "火锅", "烧烤自助", "酸菜鱼", "日料", "东北菜", "江浙菜", "川菜","新疆菜"
     };
 
     private String[] mFoodArr = null;

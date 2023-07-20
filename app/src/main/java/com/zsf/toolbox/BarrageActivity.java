@@ -15,7 +15,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.zsf.toolbox.barrage.CaptionTextView;
+import com.zsf.toolbox.ui.barrage.CaptionTextView;
 
 /**
  * Created by EWorld

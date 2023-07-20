@@ -6,7 +6,7 @@
 
     <include layout="@layout/layout_title"/>
 
-    <com.zsf.toolbox.gradienter.GradienterView
+    <com.zsf.toolbox.ui.gradienter.GradienterView
         android:id="@+id/gradienter"
         android:layout_width="match_parent"
         android:layout_marginTop="50dp"

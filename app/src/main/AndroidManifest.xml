@@ -38,37 +38,39 @@
         </activity>
         <activity android:name=".AboutActivity" />
         <activity android:name=".MagnifierActivity" />
-        <activity android:name=".decibel.DecibelActivity" />
+        <activity android:name=".ui.decibel.DecibelActivity" />
         <activity android:name=".CompassActivity" />
-        <activity android:name=".ruler.RulerActivity" />
-        <activity android:name=".gradienter.GradienterActivity" />
+        <activity android:name=".ui.ruler.RulerActivity" />
+        <activity android:name=".ui.gradienter.GradienterActivity" />
         <activity android:name=".CalculateActivity" />
         <activity android:name=".BarrageActivity" />
         <activity android:name=".SystemConfigActivity" />
-        <activity android:name=".exchange.ExchangeRateActivity" />
-        <activity android:name=".exchange.CurrencyListActivity" />
-        <activity android:name=".netspeed.NetSpeedActivity" />
-        <activity android:name=".mirror.MirrorActivity" />
+        <activity android:name=".ui.exchange.ExchangeRateActivity" />
+        <activity android:name=".ui.exchange.CurrencyListActivity" />
+        <activity android:name=".ui.netspeed.NetSpeedActivity" />
+        <activity android:name=".ui.mirror.MirrorActivity" />
         <activity
-            android:name=".protractor.ProtractorActivity"
+            android:name=".ui.protractor.ProtractorActivity"
             android:screenOrientation="landscape" />
-        <activity android:name=".oneword.OneWordActivity" />
+        <activity android:name=".ui.oneword.OneWordActivity" />
         <activity android:name=".SimpActivity" />
         <activity android:name=".AntiMotivationalQuotesActivity" />
-        <activity android:name=".appmanage.AppManageActivity" />
+        <activity android:name=".ui.appmanage.AppManageActivity" />
         <activity android:name=".DogImgActivity" />
         <activity android:name=".IpAddressActivity" />
         <activity android:name=".TaoBaoActivity" />
         <activity android:name=".CatImgActivity" />
         <activity android:name=".ComicImgActivity" />
         <activity android:name=".ConstellationActivity" />
-        <activity android:name=".exchange.CommonExchangeRateActivity" />
+        <activity android:name=".ui.exchange.CommonExchangeRateActivity" />
         <activity android:name=".BingPicActivity" />
         <activity android:name=".InternetCelebrityPicActivity" />
-        <activity android:name=".BeautyGirlPicActivity" />
+        <activity android:name=".ui.BeautyGirlPicActivity" />
         <activity android:name=".SensorActivity" />
-        <activity android:name=".garbagesort.GarbageClassificationActivity" />
+        <activity android:name=".ui.garbagesort.GarbageClassificationActivity" />
         <activity android:name=".FeedActivity" />
+        <activity android:name=".ui.BeautyGirlPic2Activity" />
+        <activity android:name=".ui.car.CarBrandActivity" />
     </application>
 
 </manifest>

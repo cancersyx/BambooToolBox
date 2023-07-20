@@ -120,7 +120,7 @@
 
 # JavaBean 实体类不能混淆
 -keep class com.zsf.toolbox.bean.** { *; }
--keep class com.zsf.toolbox.appmanage.AppInfo { *; }
+-keep class com.zsf.toolbox.ui.appmanage.AppInfo { *; }
 
 
 # Retrofit

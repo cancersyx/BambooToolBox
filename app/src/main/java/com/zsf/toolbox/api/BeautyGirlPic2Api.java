@@ -9,9 +9,7 @@ import retrofit2.http.GET;
  * Created by EWorld
  * 2022/6/10
  */
-public interface TaoBaoApi {
-    /*@GET("tao")
-    Call<ResponseBody> getTaoBaoPic();*/
-    @GET("api/rand.img3")
-    Call<ResponseBody> getTaoBaoPic();
+public interface BeautyGirlPic2Api {
+    @GET("img/rand/")
+    Call<ResponseBody> getBeautyGirlPic2();
 }

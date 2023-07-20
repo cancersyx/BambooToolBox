@@ -7,7 +7,7 @@
     <include layout="@layout/layout_title" />
 
 
-    <com.zsf.toolbox.decibel.DialPlateView
+    <com.zsf.toolbox.ui.decibel.DialPlateView
         android:id="@+id/dial_plate_view"
         android:layout_width="300dp"
         android:layout_height="wrap_content"

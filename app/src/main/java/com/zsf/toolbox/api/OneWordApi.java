@@ -1,5 +1,7 @@
 package com.zsf.toolbox.api;
 
+import com.zsf.toolbox.bean.OneWord;
+
 import retrofit2.Call;
 import retrofit2.http.GET;
 
@@ -8,6 +10,6 @@ import retrofit2.http.GET;
  * 2022/6/9
  */
 public interface OneWordApi {
-    @GET("api/ylapi.php")
-    Call<String> getOneWord();
+    @GET("?c=d")
+    Call<OneWord> getOneWord();
 }

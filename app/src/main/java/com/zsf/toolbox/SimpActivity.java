@@ -9,15 +9,15 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.zsf.toolbox.api.OneWordApi;
 import com.zsf.toolbox.api.SimpApi;
+import com.zsf.toolbox.bean.SimpDog;
 import com.zsf.toolbox.constant.Constant;
-import com.zsf.toolbox.oneword.OneWordActivity;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 /**
@@ -29,6 +29,7 @@ public class SimpActivity extends AppCompatActivity {
     private ImageView mBackIv;
     private TextView mTitleTv;
     private TextView mContentTv;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,19 +49,20 @@ public class SimpActivity extends AppCompatActivity {
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Constant.API_SIMP)
-                .addConverterFactory(ScalarsConverterFactory.create())
+                //.addConverterFactory(ScalarsConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
                 .build();
         SimpApi simpApi = retrofit.create(SimpApi.class);
-        Call<String> call = simpApi.getSimpDiary();
-        call.enqueue(new Callback<String>() {
+        Call<SimpDog> call = simpApi.getSimpDiary();
+        call.enqueue(new Callback<SimpDog>() {
             @Override
-            public void onResponse(Call<String> call, Response<String> response) {
-                String content = response.body();
-                mContentTv.setText(content);
+            public void onResponse(Call<SimpDog> call, Response<SimpDog> response) {
+                SimpDog simpDog = response.body();
+                mContentTv.setText(simpDog.getData());
             }
 
             @Override
-            public void onFailure(Call<String> call, Throwable t) {
+            public void onFailure(Call<SimpDog> call, Throwable t) {
 
             }
         });

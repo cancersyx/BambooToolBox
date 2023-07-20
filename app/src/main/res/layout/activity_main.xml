@@ -520,6 +520,21 @@
                 android:textSize="16sp" />
 
             <TextView
+                android:id="@+id/tv_beauty_girl_2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_btn"
+                android:drawableTop="@drawable/icon_wallpaper"
+                android:elevation="5dp"
+                android:gravity="center"
+                android:paddingTop="5dp"
+                android:text="美女壁纸2"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <TextView
                 android:id="@+id/tv_splice_pic"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -534,22 +549,6 @@
                 android:textColor="@color/white"
                 android:textSize="16sp" />
 
-            <TextView
-                android:id="@+id/tv_feed"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="10dp"
-                android:layout_weight="1"
-                android:background="@drawable/bg_btn"
-                android:drawableTop="@drawable/icon_feed"
-                android:elevation="5dp"
-                android:gravity="center"
-                android:paddingTop="5dp"
-                android:text="今天吃什么"
-                android:textColor="@color/white"
-                android:textSize="14sp" />
-
-
         </LinearLayout>
 
         <LinearLayout
@@ -560,9 +559,39 @@
             android:paddingRight="10dp">
 
             <TextView
+                android:id="@+id/tv_feed"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bg_btn"
+                android:drawableTop="@drawable/icon_feed"
+                android:elevation="5dp"
+                android:gravity="center"
+                android:paddingTop="5dp"
+                android:text="今天吃什么"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_car_brand"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_btn"
+                android:drawableTop="@drawable/icon_car"
+                android:elevation="5dp"
+                android:gravity="center"
+                android:paddingTop="5dp"
+                android:text="车辆品牌"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <TextView
                 android:id="@+id/tv_about"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/bg_btn"
                 android:drawableTop="@drawable/icon_about"
@@ -572,19 +601,6 @@
                 android:text="关于"
                 android:textColor="@color/white"
                 android:textSize="16sp" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:elevation="5dp"
-                android:gravity="center"
-                android:paddingTop="5dp"
-                android:text=""
-                android:textColor="@color/white"
-                android:textSize="16sp" />
-
-
 
 
         </LinearLayout>

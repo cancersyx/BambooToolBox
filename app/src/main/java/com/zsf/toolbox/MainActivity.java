@@ -22,16 +22,19 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.zsf.toolbox.appmanage.AppManageActivity;
-import com.zsf.toolbox.decibel.DecibelActivity;
-import com.zsf.toolbox.exchange.ExchangeRateActivity;
-import com.zsf.toolbox.garbagesort.GarbageClassificationActivity;
-import com.zsf.toolbox.gradienter.GradienterActivity;
-import com.zsf.toolbox.mirror.MirrorActivity;
-import com.zsf.toolbox.netspeed.NetSpeedActivity;
-import com.zsf.toolbox.oneword.OneWordActivity;
-import com.zsf.toolbox.protractor.ProtractorActivity;
-import com.zsf.toolbox.ruler.RulerActivity;
+import com.zsf.toolbox.ui.appmanage.AppManageActivity;
+import com.zsf.toolbox.ui.car.CarBrandActivity;
+import com.zsf.toolbox.ui.decibel.DecibelActivity;
+import com.zsf.toolbox.ui.exchange.ExchangeRateActivity;
+import com.zsf.toolbox.ui.garbagesort.GarbageClassificationActivity;
+import com.zsf.toolbox.ui.gradienter.GradienterActivity;
+import com.zsf.toolbox.ui.mirror.MirrorActivity;
+import com.zsf.toolbox.ui.netspeed.NetSpeedActivity;
+import com.zsf.toolbox.ui.oneword.OneWordActivity;
+import com.zsf.toolbox.ui.protractor.ProtractorActivity;
+import com.zsf.toolbox.ui.BeautyGirlPic2Activity;
+import com.zsf.toolbox.ui.BeautyGirlPicActivity;
+import com.zsf.toolbox.ui.ruler.RulerActivity;
 
 public class MainActivity extends AppCompatActivity {
     public static final int REQUEST_CODE_CAMERA_MAGNIFIER = 100;
@@ -47,8 +50,10 @@ public class MainActivity extends AppCompatActivity {
     private TextView mAppManageTv, mDogTv, mIpTv;
     private TextView mTaoBaoTv, mCatTv, mComicTv;
     private TextView mBingTv, mInternetCelebrityTv, mBeautyGirlTv;
+    private TextView mBeautyGirlTv2;
     private TextView mSplicePicTv, mSensorTv, mGarbageClassificationTv;
     private TextView mFeedTv;
+    private TextView mCarBrandTv;
 
     private boolean isOpen = false;
     private CameraManager mCameraManager;
@@ -113,10 +118,12 @@ public class MainActivity extends AppCompatActivity {
         mBingTv = findViewById(R.id.tv_bing_pic);
         mInternetCelebrityTv = findViewById(R.id.tv_internet_celebrity);
         mBeautyGirlTv = findViewById(R.id.tv_beauty_girl);
+        mBeautyGirlTv2 = findViewById(R.id.tv_beauty_girl_2);
         mSplicePicTv = findViewById(R.id.tv_splice_pic);
         mSensorTv = findViewById(R.id.tv_sensor);
         mGarbageClassificationTv = findViewById(R.id.tv_garbage_sorting);
         mFeedTv = findViewById(R.id.tv_feed);
+        mCarBrandTv = findViewById(R.id.tv_car_brand);
     }
 
     private void initEvent() {
@@ -319,6 +326,12 @@ public class MainActivity extends AppCompatActivity {
                 BeautyGirlPicActivity.startActivity(MainActivity.this);
             }
         });
+        mBeautyGirlTv2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                BeautyGirlPic2Activity.startActivity(MainActivity.this);
+            }
+        });
 
         mSplicePicTv.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -345,6 +358,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 FeedActivity.startActivity(MainActivity.this);
+            }
+        });
+
+        mCarBrandTv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CarBrandActivity.startActivity(MainActivity.this);
             }
         });
 
